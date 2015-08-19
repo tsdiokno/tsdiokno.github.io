@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Oh, Ain't this cool?"
+title:  "Oh, Ain't this Cool?"
 date:   2015-08-19 23:38:10
 categories: jekyll update
 ---
