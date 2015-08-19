@@ -1,0 +1,12 @@
+# Site settings
+title: TimmyStream!
+email: tsdiokno@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Basically parts of the brain of audio/visual creative, restless dabbler, an intentional wanderer, and jack-of-all-trades of some sort that goes by the name Timothy Diokno. Ramblings, musings, random things of interest, online landing page, and creative sandbox.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://tsdiokno.github,io" # the base hostname & protocol for your site
+twitter_username: tsdiokno
+github_username:  tsdiokno
+
+# Build settings
+markdown: kramdown
