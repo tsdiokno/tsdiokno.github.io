@@ -6,9 +6,30 @@
 </description>
     <link>http://tsdiokno.github,io/</link>
     <atom:link href="http://tsdiokno.github,io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 21 Aug 2015 17:18:58 +0800</pubDate>
-    <lastBuildDate>Fri, 21 Aug 2015 17:18:58 +0800</lastBuildDate>
+    <pubDate>Fri, 21 Aug 2015 17:39:21 +0800</pubDate>
+    <lastBuildDate>Fri, 21 Aug 2015 17:39:21 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>git pushmoteh</title>
+        <description>&lt;p&gt;Alright. More stuff to practice Vim with.&lt;/p&gt;
+
+&lt;p&gt;Now that I’m back to coding stuff again and I work with Git, I also bring back my aliases.&lt;/p&gt;
+
+&lt;p&gt;Stuff that I’d actually use at work in the past.&lt;/p&gt;
+
+&lt;p&gt;Actually, for a good one, I just (vaguely) remember using one.&lt;/p&gt;
+
+&lt;p&gt;Enjoy! (I hope.)&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git config --global alias.pushmoteh 'push origin master'&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 21 Aug 2015 00:00:00 +0800</pubDate>
+        <link>http://tsdiokno.github,io/2015/08/21/pushmoteh.html</link>
+        <guid isPermaLink="true">http://tsdiokno.github,io/2015/08/21/pushmoteh.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Can't Fake It Till You Make It.</title>
