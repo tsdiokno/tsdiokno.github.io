@@ -4,8 +4,18 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Yellow.
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+My name is Timothy Alvin Salazar Diokno but you can call me Tim.
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+I'm a Creative Officer by profession and a multi-aspect nomad by whatever else.
+
+I'm not gonna talk much about myself anymore, but you know what, you could check me out on places where I'd have extensively done it:
+
+  * [Facebook](http://fb.com/tsdiokno)
+  * [Twitter](http://twitter.com/tsdiokno)
+  * [Tumblr Blog](http://tmmystream.tumblr.com)
+
+For sure I'll find time to get my act together and somewhow end up with something pretty cool here but until then.
+
+T
