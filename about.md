@@ -14,7 +14,7 @@ I'm not gonna talk much about myself anymore, but you know what, you could check
 
   * [Facebook](http://fb.com/tsdiokno)
   * [Twitter](http://twitter.com/tsdiokno)
-  * [Tumblr Blog](http://tmmystream.tumblr.com)
+  * [Tumblr Blog](http://timmystream.tumblr.com)
 
 For sure I'll find time to get my act together and somewhow end up with something pretty cool here but until then.
 
