@@ -17,4 +17,14 @@
 
   </body>
 
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+     $('.cat-showcase > .card').click(function() {
+       console.log('testing');
+       $(this).children('.post-list').toggleClass('toggled');
+     })
+    })
+  </script>
+
 </html>

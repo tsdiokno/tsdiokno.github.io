@@ -4,20 +4,44 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <ul class="cat-showcase">
+    {% for category in site.categories %}
+      <li class="card -{{ category | first }}">
+        <h2 class="title">{{ category | first }}</h2>
+        <p class="desc">
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          {% capture pluralize_std %}{% if category.last.size > 1 %}s{% endif %}{% endcapture %}
+          {% capture pluralize_auxverb %}{% if category.last.size > 1 %}Are{% else %}Is{% endif %}{% endcapture %}
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+          There {{ pluralize_auxverb }} {{ category | last | size }}  Stream{{ pluralize_std }} Of Thought{{ pluralize_std }} In "{{ category | first | capitalize }}" Written So Far
+        </p>
+        <span class="btn">Stream Along <span class="oi" data-glyph="arrow-bottom" title="x-thin" aria-hidden="true"></span></span>
+        <div class="post-list">
+          <div class="header">
+            <h2 class="title">Stream Of {{ category | first }}</h2>
+            <span class="btn -small"><span class="oi" data-glyph="caret-top" title="Roll Up!" aria-hidden="true"></span></span>
+          </div>
+          <ul class="items" >
+            {% for posts in category %}
+            {% for post in posts %}
+            {% if post.url %}
+            <li class="item">
+              <a href="{{ post.url }}" class="link">
+                <h3 class="title">{{ post.title }}</h3>
+                <span class="meta">
+                  <span class="oi" data-glyph="calendar" title="x-thin" aria-hidden="true"> {{ post.date | date: "%-m.%-d.%y" }}</span>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+      </li> <!--.card-->
     {% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a> because you should.</p>
 
 </div>

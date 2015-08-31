@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "git pushmoteh"
+categories: web
 ---
 
 Alright. More stuff to practice Vim with.

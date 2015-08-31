@@ -6,15 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>About</title>
-  <meta name="description" content="Basically parts of the brain of audio/visual creative, restless dabbler, an intentional wanderer, and jack-of-all-trades of some sort that goes by the name Timothy Diokno. Ramblings, musings, random things of interest, online landing page, and creative sandbox.
-">
+  <title>LCCSS: Lazy Crappy CSS (Or How Not To Use CSS Frameworks Yet)</title>
+  <meta name="description" content="The Idea">
 
   <link href='https://fonts.googleapis.com/css?family=Arvo:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tsdiokno.github,io/about/">
+  <link rel="canonical" href="http://tsdiokno.github,io/web/2015/08/30/lazycss.html">
   <link rel="alternate" type="application/rss+xml" title="TimmyStream!" href="http://tsdiokno.github,io/feed.xml" />
 </head>
 
@@ -61,27 +60,151 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">About</h1>
+    <h1 class="post-title">LCCSS: Lazy Crappy CSS (Or How Not To Use CSS Frameworks Yet)</h1>
+    <p class="post-meta">Aug 30, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>Yellow.</p>
-
-<p>My name is Timothy Alvin Salazar Diokno but you can call me Tim.</p>
-
-<p>I’m a Creative Officer by profession and a multi-aspect nomad by whatever else.</p>
-
-<p>I’m not gonna talk much about myself anymore, but you know what, you could check me out on places where I’d have extensively done it:</p>
+    <h2 id="the-idea">The Idea</h2>
 
 <ul>
-  <li><a href="http://fb.com/tsdiokno">Facebook</a></li>
-  <li><a href="http://twitter.com/tsdiokno">Twitter</a></li>
-  <li><a href="http://timmystream.tumblr.com">Tumblr Blog</a></li>
+  <li>You don’t always <em>have</em> to use CSS frameworks.</li>
+  <li>Sometimes all you might wanna do is a simple single-page article page.</li>
+  <li>So, I wanted to make things easier. No frameworks.</li>
+  <li>But I still need a system.</li>
+  <li>And I gotta build them quick.</li>
 </ul>
 
-<p>For sure I’ll find time to get my act together and somewhow end up with something pretty cool here but until then.</p>
+<h2 id="nomad-styles">“Nomad” Styles.</h2>
 
-<p>T</p>
+<p>(Better name, TBA.)</p>
+
+<p>I wanna build a bunch of “nomad” styles first. They’re not doing anything yet.
+They’re not specifically meant for something yet.
+And the idea is they shouldn’t be meant <em>just</em> for something.</p>
+
+<pre><code>.base-padding {
+  ... set the structure ...
+}
+</code></pre>
+
+<p>Or <code>.base-structure</code> if you definitely know you’ll always have to use the same padding values, or if you’re using <code>box-border</code> (but you can actually set these things in a global scope).</p>
+
+<p>Moving on…</p>
+
+<pre><code>.pink-bg {
+  ... set the mood ...
+}
+
+.blur-shadow {
+  ... stuff ...
+}
+
+.round-corner {
+  ... stuff ...
+}
+</code></pre>
+
+<p>Then I’ll build something with it.</p>
+
+<pre><code>.pink-button {
+  @extend .base-padding;
+  @extend .pink-bg;
+  @extend .blur-shadow;
+  @extend .round-corner;
+}
+</code></pre>
+
+<p>But what if we don’t want pink?</p>
+
+<p>Variables.</p>
+
+<pre><code>$primary-color: color;
+$secondary-color: secondary-color;
+
+.primary-bg {
+  background-color: $brand-color;
+}
+
+.secondary-bg {
+  background-color: $secondary-color;
+}
+</code></pre>
+
+<p>And so forth (if you fancy tertiaries, etc.).</p>
+
+<p>Then build the buttons.</p>
+
+<pre><code>.button {
+  @extend .base-padding;
+  @extend .blur-shadow;
+  @extend .round-corner;
+
+  .primary-button {
+    @extend .primary-bg;
+  }
+
+  .secondary-button {
+    @extend .secondary-bg;
+  }
+
+}
+</code></pre>
+
+<p>Roughly…</p>
+
+<pre><code>  &lt;a class=".button .primary-button" href="#"&gt;Button&lt;/a&gt;
+  &lt;a class=".button .secondary-button" href="#"&gt;Button&lt;/a&gt;
+</code></pre>
+
+<p>I’m using autocomplete but, yes, using <code>btn</code> helps.</p>
+
+<h2 id="some-possible-advantages">Some Possible Advantages.</h2>
+
+<blockquote>
+  <p>“I want a pink bar that has a blurry drop shadow, etc.”</p>
+</blockquote>
+
+<p>Your wish is my command:</p>
+
+<p><code>&lt;nav class="base-padding primary-bg blur-shadow"&gt;Content&lt;/nav&gt;</code></p>
+
+<blockquote>
+  <p>“… but I also want my cards to be pink with blurry shadows…”</p>
+</blockquote>
+
+<p>Change <code>&lt;nav&gt;</code> to <code>&lt;div&gt;</code>:</p>
+
+<p><code>&lt;div class="base-padding primary-bg blur-shadow"&gt;Content&lt;/div&gt;</code></p>
+
+<blockquote>
+  <p>“but they’re cards…”</p>
+</blockquote>
+
+<p>Let’s call them cards. (I’m not sure why I’m going to use it yet, but it should be OK.)</p>
+
+<p><code>&lt;div class="base-padding primary-bg blur-shadow card"&gt;Content&lt;/div&gt;</code></p>
+
+<p>Thing is, I don’t know why I’d would need the <code>.card</code> class early in the coding stage yet.</p>
+
+<p>But I know that doesn’t hurt anything. I’m sure we’ll want to use that later suppose we have to.</p>
+
+<blockquote>
+  <p>“Hard to type?”</p>
+</blockquote>
+
+<p>Sure.</p>
+
+<pre><code>.card,
+.nav-bar {
+  @extend .primary-bg;
+  @extend .base-padding;
+  @extend .blur-shadow;
+  @extend .round-corner;
+}
+</code></pre>
+
+<p>Guess that’s where you might need the component names now.</p>
 
   </article>
 

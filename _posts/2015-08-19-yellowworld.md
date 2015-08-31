@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Oh, Ain't this Cool?"
-date:   2015-08-19 23:38:10
-categories: jekyll update
+categories: web
 ---
 
 So, I'm trying out this thingamabob called Jekyll because I just thought it's kinda fun. Nothing much really. Just the usual dabbling with stuff.

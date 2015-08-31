@@ -9,8 +9,11 @@
   <title>git pushmoteh</title>
   <meta name="description" content="Alright. More stuff to practice Vim with.">
 
+  <link href='https://fonts.googleapis.com/css?family=Arvo:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
+
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://tsdiokno.github,io/2015/08/21/pushmoteh.html">
+  <link rel="canonical" href="http://tsdiokno.github,io/web/2015/08/21/pushmoteh.html">
   <link rel="alternate" type="application/rss+xml" title="TimmyStream!" href="http://tsdiokno.github,io/feed.xml" />
 </head>
 
@@ -140,5 +143,15 @@
 
 
   </body>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+     $('.cat-showcase > .card').click(function() {
+       console.log('testing');
+       $(this).children('.post-list').toggleClass('toggled');
+     })
+    })
+  </script>
 
 </html>

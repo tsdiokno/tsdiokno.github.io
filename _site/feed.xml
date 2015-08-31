@@ -6,9 +6,161 @@
 </description>
     <link>http://tsdiokno.github,io/</link>
     <atom:link href="http://tsdiokno.github,io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Aug 2015 00:36:05 +0800</pubDate>
-    <lastBuildDate>Sun, 23 Aug 2015 00:36:05 +0800</lastBuildDate>
+    <pubDate>Mon, 31 Aug 2015 01:15:58 +0800</pubDate>
+    <lastBuildDate>Mon, 31 Aug 2015 01:15:58 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>LCCSS: Lazy Crappy CSS (Or How Not To Use CSS Frameworks Yet)</title>
+        <description>&lt;h2 id=&quot;the-idea&quot;&gt;The Idea&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You don’t always &lt;em&gt;have&lt;/em&gt; to use CSS frameworks.&lt;/li&gt;
+  &lt;li&gt;Sometimes all you might wanna do is a simple single-page article page.&lt;/li&gt;
+  &lt;li&gt;So, I wanted to make things easier. No frameworks.&lt;/li&gt;
+  &lt;li&gt;But I still need a system.&lt;/li&gt;
+  &lt;li&gt;And I gotta build them quick.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;nomad-styles&quot;&gt;“Nomad” Styles.&lt;/h2&gt;
+
+&lt;p&gt;(Better name, TBA.)&lt;/p&gt;
+
+&lt;p&gt;I wanna build a bunch of “nomad” styles first. They’re not doing anything yet.
+They’re not specifically meant for something yet.
+And the idea is they shouldn’t be meant &lt;em&gt;just&lt;/em&gt; for something.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.base-padding {
+  ... set the structure ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or &lt;code&gt;.base-structure&lt;/code&gt; if you definitely know you’ll always have to use the same padding values, or if you’re using &lt;code&gt;box-border&lt;/code&gt; (but you can actually set these things in a global scope).&lt;/p&gt;
+
+&lt;p&gt;Moving on…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.pink-bg {
+  ... set the mood ...
+}
+
+.blur-shadow {
+  ... stuff ...
+}
+
+.round-corner {
+  ... stuff ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then I’ll build something with it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.pink-button {
+  @extend .base-padding;
+  @extend .pink-bg;
+  @extend .blur-shadow;
+  @extend .round-corner;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But what if we don’t want pink?&lt;/p&gt;
+
+&lt;p&gt;Variables.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$primary-color: color;
+$secondary-color: secondary-color;
+
+.primary-bg {
+  background-color: $brand-color;
+}
+
+.secondary-bg {
+  background-color: $secondary-color;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And so forth (if you fancy tertiaries, etc.).&lt;/p&gt;
+
+&lt;p&gt;Then build the buttons.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.button {
+  @extend .base-padding;
+  @extend .blur-shadow;
+  @extend .round-corner;
+
+  .primary-button {
+    @extend .primary-bg;
+  }
+
+  .secondary-button {
+    @extend .secondary-bg;
+  }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Roughly…&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  &amp;lt;a class=&quot;.button .primary-button&quot; href=&quot;#&quot;&amp;gt;Button&amp;lt;/a&amp;gt;
+  &amp;lt;a class=&quot;.button .secondary-button&quot; href=&quot;#&quot;&amp;gt;Button&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I’m using autocomplete but, yes, using &lt;code&gt;btn&lt;/code&gt; helps.&lt;/p&gt;
+
+&lt;h2 id=&quot;some-possible-advantages&quot;&gt;Some Possible Advantages.&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“I want a pink bar that has a blurry drop shadow, etc.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Your wish is my command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;nav class=&quot;base-padding primary-bg blur-shadow&quot;&amp;gt;Content&amp;lt;/nav&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“… but I also want my cards to be pink with blurry shadows…”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Change &lt;code&gt;&amp;lt;nav&amp;gt;&lt;/code&gt; to &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;div class=&quot;base-padding primary-bg blur-shadow&quot;&amp;gt;Content&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“but they’re cards…”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Let’s call them cards. (I’m not sure why I’m going to use it yet, but it should be OK.)&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;div class=&quot;base-padding primary-bg blur-shadow card&quot;&amp;gt;Content&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Thing is, I don’t know why I’d would need the &lt;code&gt;.card&lt;/code&gt; class early in the coding stage yet.&lt;/p&gt;
+
+&lt;p&gt;But I know that doesn’t hurt anything. I’m sure we’ll want to use that later suppose we have to.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Hard to type?”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sure.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.card,
+.nav-bar {
+  @extend .primary-bg;
+  @extend .base-padding;
+  @extend .blur-shadow;
+  @extend .round-corner;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Guess that’s where you might need the component names now.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 30 Aug 2015 00:00:00 +0800</pubDate>
+        <link>http://tsdiokno.github,io/web/2015/08/30/lazycss.html</link>
+        <guid isPermaLink="true">http://tsdiokno.github,io/web/2015/08/30/lazycss.html</guid>
+        
+        
+        <category>web</category>
+        
+      </item>
     
       <item>
         <title>My Personal Quick And Dirty Wise Voting Strategy</title>
@@ -108,12 +260,13 @@
 &lt;p&gt;And that’s pretty much it, actually. No fuzz.&lt;/p&gt;
 
 &lt;p&gt;Some people would rather go further in to bit by digging deeper in to the tendencies, background, or the inclination of a person, but I think the things that I would’ve listed are just a few things if not everything that matters in choosing somebody to lead and produce results.&lt;/p&gt;
-
 </description>
         <pubDate>Sat, 22 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://tsdiokno.github,io/2015/08/22/phelections2016.html</link>
-        <guid isPermaLink="true">http://tsdiokno.github,io/2015/08/22/phelections2016.html</guid>
+        <link>http://tsdiokno.github,io/politics/2015/08/22/phelections2016.html</link>
+        <guid isPermaLink="true">http://tsdiokno.github,io/politics/2015/08/22/phelections2016.html</guid>
         
+        
+        <category>politics</category>
         
       </item>
     
@@ -132,9 +285,11 @@
 &lt;p&gt;&lt;code&gt;git config --global alias.pushmoteh 'push origin master'&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 21 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://tsdiokno.github,io/2015/08/21/pushmoteh.html</link>
-        <guid isPermaLink="true">http://tsdiokno.github,io/2015/08/21/pushmoteh.html</guid>
+        <link>http://tsdiokno.github,io/web/2015/08/21/pushmoteh.html</link>
+        <guid isPermaLink="true">http://tsdiokno.github,io/web/2015/08/21/pushmoteh.html</guid>
         
+        
+        <category>web</category>
         
       </item>
     
@@ -215,9 +370,11 @@
 &lt;p&gt;Except the those tendencies are grately amplified when you are in power.&lt;/p&gt;
 </description>
         <pubDate>Fri, 21 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://tsdiokno.github,io/2015/08/21/marchmarchmarch.html</link>
-        <guid isPermaLink="true">http://tsdiokno.github,io/2015/08/21/marchmarchmarch.html</guid>
+        <link>http://tsdiokno.github,io/thoughts/2015/08/21/marchmarchmarch.html</link>
+        <guid isPermaLink="true">http://tsdiokno.github,io/thoughts/2015/08/21/marchmarchmarch.html</guid>
         
+        
+        <category>thoughts</category>
         
       </item>
     
@@ -262,9 +419,11 @@
 &lt;p&gt;&lt;em&gt;And I don’t think you’d be exactly doing it through being a total Jacka**.&lt;/em&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 21 Aug 2015 00:00:00 +0800</pubDate>
-        <link>http://tsdiokno.github,io/2015/08/21/makefake.html</link>
-        <guid isPermaLink="true">http://tsdiokno.github,io/2015/08/21/makefake.html</guid>
+        <link>http://tsdiokno.github,io/faith/2015/08/21/makefake.html</link>
+        <guid isPermaLink="true">http://tsdiokno.github,io/faith/2015/08/21/makefake.html</guid>
         
+        
+        <category>faith</category>
         
       </item>
     
@@ -287,14 +446,12 @@
 &lt;p&gt;Cheers!
 T&lt;/p&gt;
 </description>
-        <pubDate>Thu, 20 Aug 2015 07:38:10 +0800</pubDate>
-        <link>http://tsdiokno.github,io/jekyll/update/2015/08/20/yellowworld.html</link>
-        <guid isPermaLink="true">http://tsdiokno.github,io/jekyll/update/2015/08/20/yellowworld.html</guid>
+        <pubDate>Wed, 19 Aug 2015 00:00:00 +0800</pubDate>
+        <link>http://tsdiokno.github,io/web/2015/08/19/yellowworld.html</link>
+        <guid isPermaLink="true">http://tsdiokno.github,io/web/2015/08/19/yellowworld.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>web</category>
         
       </item>
     

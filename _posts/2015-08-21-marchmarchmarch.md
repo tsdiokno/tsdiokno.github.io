@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "On Authority, Democracy, Etc."
+categories: thoughts
 ---
 
 Not an anarchist.

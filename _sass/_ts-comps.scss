@@ -1,0 +1,208 @@
+//SETTINGS
+
+$color-cream: #fffde7;
+$color-bluegray: #455a64;
+$color-pink: #f48fb1;
+
+$border-radius: 4px;
+
+
+//TOOLS
+
+// TS-CARDS
+.ts-card {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  background-color: $color-cream;
+  color: $color-bluegray;
+  border-radius: $border-radius;
+
+  &.-hoverable {
+    transition: box-shadow .2s ease-in-out;
+  }
+
+  &.-hoverable:hover,
+  &.-hoverable:active,
+  &.-hoverable:target {
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
+  }
+
+}
+
+// COMPONENTS
+
+.btn {
+  @extend .ts-card;
+  @extend .ts-card.-hoverable;
+  display: inline-block;
+  padding: 0.6em 0.8em;
+  background-color: $color-pink;
+  color: $color-cream !important;
+  border-radius: $border-radius;
+
+  &:hover{
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $color-cream;
+    background-color: $color-bluegray;
+  }
+
+  &.-small {
+    font-size: .6em;
+  }
+
+}
+
+// TS STREAMS
+
+.cat-showcase {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0 -1em;
+  padding: 0;
+
+  > .card {
+    @extend .ts-card;
+    @extend .ts-card.-hoverable;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 1em;
+    margin: 1em;
+    height: 20em;
+    width: 200px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color .3s ease-in-out, color .8s ease-in-out;
+
+    &:hover {
+      background-color: $color-bluegray;
+      color: $color-cream;
+    }
+
+    > .title {
+      text-transform: uppercase;
+      font-size: 1.8em;
+    }
+
+    // TOGGLELEABLE POST LIST COMPONENT
+    // Should come within cat-showcase card
+
+    > .post-list {
+      @extend .ts-card;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      overflow: hidden;
+      top: -30em;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      transition: top .3s ease-in-out;
+    }
+
+    > .post-list.toggled {
+      top: 0;
+    }
+
+    .post-list > .header {
+      @extend .ts-card;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.9em;
+      background-color: $color-bluegray;
+      color: $color-cream;
+    }
+
+    .post-list > .header > .title {
+      margin: 0;
+      font-size: 1em;
+      font-family: 'Arvo', serif;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity .5s ease-in-out .4s;
+    }
+
+    .post-list.toggled > .header > .title {
+      opacity: 1;
+    }
+
+    @keyframes btn-pop {
+      0% {
+        transform: scale(0,0);
+      }
+      40% {
+        transform: scale(1.4,1.4);
+      }
+      100% {
+        transform: scale(1,1);
+      }
+    }
+
+    .post-list > .header > .btn.-small {
+      opacity: 0;
+      transition: opacity .5s ease-in-out .6s;
+    }
+
+    .post-list.toggled > .header > .btn.-small {
+      opacity: 1;
+      animation: btn-pop .8s .6s alternate backwards;
+    }
+
+    > .post-list > .items {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 0;
+      margin: 0;
+    }
+
+    > .post-list > .items > .item {
+      margin: 0;
+    }
+
+    > .post-list > .items > .item > .link {
+      display: block;
+      padding: .9em;
+      border-left: 6px solid $color-cream;
+      transition: border-color .3s ease-in-out, background-color .2s ease-in-out;
+    }
+
+    > .post-list > .items > .item > .link:hover {
+      text-decoration: none;
+      border-color: $color-pink;
+    }
+
+    > .post-list > .items > .item > .link:active {
+      background-color: $color-pink;
+      color: $color-cream;
+    }
+
+    > .post-list > .items > .item > .link > .title {
+      margin: 0;
+      font-size: 1.2em;
+      font-family: 'Arvo', serif;
+    }
+
+    > .post-list > .items > .item > .link > .meta {
+      font-size: .8em;
+      text-transform: uppercase;
+      color: $color-bluegray;
+      opacity: 0.5;
+    }
+
+  }//.card
+
+}//.cat-showcase
